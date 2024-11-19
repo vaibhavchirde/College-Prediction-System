@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Prediction</title>
+    <style>
+      /* Same styling as register.html */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Predicted Colleges</h2>
+      <div id="predictions"></div>
+    </div>
+
+    <script>
+      window.onload = async () => {
+        const response = await fetch("predict.php");
+        const predictions = await response.json();
+
+        const container = document.getElementById("predictions");
+        predictions.forEach((college) => {
+          const div = document.createElement("div");
+          div.textContent = `${college.name} - ${college.branch} (Rank: ${college.nirf_rank})`;
+          container.appendChild(div);
+        });
+      };
+    </script>
+  </body>
+</html>

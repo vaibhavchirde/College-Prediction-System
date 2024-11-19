@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Prediction - Login</title>
+    <style>
+      /* Same styling as register.html */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+
+          const response = await fetch("login.php", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.text();
+          alert(result);
+          if (result === "Login successful") {
+            window.location.href = "predict.html";
+          }
+        });
+    </script>
+  </body>
+</html>

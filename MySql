@@ -1,0 +1,37 @@
+CREATE DATABASE CollegePrediction;
+
+USE CollegePrediction;
+
+-- Table for User Registration
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    caste VARCHAR(50) NOT NULL,
+    jee_score INT NOT NULL,
+    percentage FLOAT NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Table for College Rankings
+CREATE TABLE Colleges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    branch VARCHAR(50) NOT NULL,
+    nirf_rank INT NOT NULL
+);
+
+-- Example Data for Colleges
+INSERT INTO Colleges (name, branch, nirf_rank) VALUES 
+('IIT Bombay', 'CSE', 1),
+('IIT Bombay', 'ECE', 1),
+('IIT Bombay', 'Civil', 1),
+('IIT Bombay', 'Mechanical', 1),
+('IIT Delhi', 'CSE', 2),
+('IIT Delhi', 'ECE', 2),
+('IIT Delhi', 'Civil', 2),
+('IIT Delhi', 'Mechanical', 2),
+('IIT Kanpur', 'CSE', 3),
+('IIT Kanpur', 'ECE', 3),
+('IIT Kanpur', 'Civil', 3),
+('IIT Kanpur', 'Mechanical', 3);
